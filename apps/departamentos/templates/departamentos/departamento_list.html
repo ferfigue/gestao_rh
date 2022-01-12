@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{%block title%}Lista Departamentos {% endblock %}
+
+{% block main %} 
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Lista Departamentos</a>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+    <a href="{% url 'create_departamentos'%}" class="btn btn-info">Novo Departamento</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Açôes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for departamento in object_list %}
+        <tr>
+            <th scope="row">{{departamento.id}}</th>
+            <td>{{departamento.nome}}</td>
+            <td>
+                <a href="{% url 'edit_departamentos' departamento.id %}"
+                class="btn btn-success">Editar</a>
+                <a href="{% url 'delete_departamentos' departamento.id %}"
+                class="btn btn-danger">Deletar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <h3>Sem Departamento cadastrado!</h3>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

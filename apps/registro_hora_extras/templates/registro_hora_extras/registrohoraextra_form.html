@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Editar {% endblock %}
+
+{% block main %}
+<h1 style="margin-bottom: 50px;">Hora Extra</h1>
+<form action="" method="post">
+    {%csrf_token%}
+    {{form|bootstrap}} <br>
+    <button type="submit" class="btn btn-success">Salvar</button>
+</form>
+<br>
+
+{%endblock%}

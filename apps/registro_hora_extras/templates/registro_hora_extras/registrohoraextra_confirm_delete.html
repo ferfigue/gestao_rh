@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{%load bootstrap%}
+
+{% block title %} Deletar {% endblock %}
+
+{% block main %}
+<div class="row">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Tem certeza, que gostaria de Deletar<b><br>{{ object }}</b>,  isso irá remove-lo
+            totalmente do banco de dados?
+        </p>
+        {{form|bootstrap}}
+        <input type="submit" value="Confirme" class="btn btn-danger">
+    </form>
+</div>
+
+{% endblock %}

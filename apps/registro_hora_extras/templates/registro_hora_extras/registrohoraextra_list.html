@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Banco de horas {%endblock%}
+
+{% block main %}
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">Hora extra</a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<a href="{% url 'create_hora_extra' %}" class="btn btn-info"
+style="margin-top: 30px;margin-bottom:30px">Adicionar hora extra</a><br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Motivo</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Horas trabalhadas</th>
+            <th scope="col">Atualizada em</th>
+
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for hora_extra in object_list %}
+        <tr>
+            <th scope="row">{{hora_extra.date}}</th>
+            <td>{{hora_extra.motivo}}</td>
+            <td>{{hora_extra.funcionario}}</td>
+            <td>{{hora_extra.horas}}</td>
+            <td>{{hora_extra.date_update}}</td>
+            <td>
+                <a href="{% url 'update_hora_extra' hora_extra.id %}" class="btn btn-success">Editar</a>
+                <a href="{% url 'delete_hora_extra' hora_extra.id %}" class="btn btn-danger">Deletar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <h3 style="margin-top: 50px;margin-bottom:30px">Sem horas extras registradas até o momento!</h3>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{%endblock%}
