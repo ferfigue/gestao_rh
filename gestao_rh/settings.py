@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-zx%e(#8u4zg+2qa2s+pf@(m^lw9#%h%l5j$5tpw7_nkq3syip3
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['164.163.45.211:80', ]
+ALLOWED_HOSTS = ['164.163.45.211', ]
 
 
 
@@ -27,7 +27,6 @@ INSTALLED_APPS = [
     'apps.rh.registro_hora_extras',
     'apps.core',
     'bootstrapform',
-    'bootstrap_datepicker_plus',
 ]
 
 MIDDLEWARE = [
