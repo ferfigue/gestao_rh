@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from apps.empresas.models import Empresa
+from apps.rh.empresas.models import Empresa
 
 class Departamento(models.Model):
     nome = models.CharField(max_length=50)

@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from .models import RegistroHoraExtra
-from apps.funcionarios.models import Funcionario
+from apps.rh.funcionarios.models import Funcionario
 
 class RegistroHoraExtraForm(ModelForm):
     def __init__(self, user, *args, **kwargs):

@@ -2,8 +2,8 @@ from django.db import models
 from django.urls import reverse
 
 from django.contrib.auth.models import User
-from apps.departamentos.models import Departamento
-from apps.empresas.models import Empresa
+from apps.rh.departamentos.models import Departamento
+from apps.rh.empresas.models import Empresa
 
 class Funcionario(models.Model):
     nome = models.CharField("Nome", max_length=50)

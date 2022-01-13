@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from .models import Funcionario
-from apps.departamentos.models import Departamento
+from apps.rh.departamentos.models import Departamento
 
 class FuncionarioForm(ModelForm):
     def __init__(self, user, *args, **kwargs):

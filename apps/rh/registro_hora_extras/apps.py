@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class DepartamentosConfig(AppConfig):
+class RegistroHoraExtrasConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.departamentos'
+    name = 'apps.rh.registro_hora_extras'

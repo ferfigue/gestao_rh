@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from apps.funcionarios.models import Funcionario
+from apps.rh.funcionarios.models import Funcionario
 
 
 

@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from apps.funcionarios.models import Funcionario
+from apps.rh.funcionarios.models import Funcionario
 
 class RegistroHoraExtra(models.Model):
     date = models.DateTimeField(auto_now=False, auto_now_add=True)
