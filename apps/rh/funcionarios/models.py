@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.db.models import Sum
 
 from django.contrib.auth.models import User
 from apps.rh.departamentos.models import Departamento
@@ -13,6 +14,12 @@ class Funcionario(models.Model):
     
     def get_absolute_url(self):
         return reverse('list_funcionario')
+    
+    @property #pode  ser chamado direto do templates
+    def total_horas_extra(self):
+        total = self.registrohoraextra_set.all().aggregate(Sum('horas'))['horas__sum']
+        print(f'Debug app H.E: {total}')
+        return total
     
     def __str__(self):
         return self.nome

@@ -9,8 +9,10 @@ class RegistroHoraExtra(models.Model):
     horas = models.DecimalField('Horas trabalhadas', max_digits=5, decimal_places=2)
     date_update = models.DateTimeField(auto_now=True, auto_now_add=False)
     
+  
     def get_absolute_url(self):
-        return reverse('list_hora_extras')
+        return reverse('update_funcionario', args=[self.funcionario.id])
+    
     
     def __str__(self):
         return self.motivo

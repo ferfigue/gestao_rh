@@ -11,10 +11,7 @@
     <button type="submit" class="btn btn-success">Salvar</button>
 </form>
 <br>
-    {% if object %}
-        <a href="{% url 'create_documento' object.id %}" class="btn btn-primary btn-lg ">Adicionar Documento</a>
-    {% endif %}
-
+    
 <br>
 <!--Documentos relacionados ao funcionario-->
 <table class="table" >
@@ -22,10 +19,42 @@
     {% for documento in object.documento_set.all %}
     <tbody>
         <tr>
-            <th scope="row">{{documento}}</th>
-            <td><a href="{{documento.arquivo.url}}">Link</a></td>
+            <th >{{documento}}</th>
+            <td><a class="btn btn-info" href="{{documento.arquivo.url}}">Url</a></td>
         </tr>
     </tbody>
     {% endfor %}
 </table>
+{% if object %}
+        <a href="{% url 'create_documento' object.id %}" class="btn btn-primary btn-lg ">Adicionar Documento</a>
+{% endif %}
+
+<!--Relacao de Horas Extras-->
+<table class="table" >
+    <h3 style="padding-top: 30px;">Horas Extras</h3>
+    <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Motivo</th>
+          <th scope="col">horas</th>
+          <th scope="col">atualizado</th>
+        </tr>
+      </thead>
+    {% for registro_hora in object.registrohoraextra_set.all %}
+    <tbody>
+        <tr>
+            <td><a href="{% url 'update_hora_extra' registro_hora.id %}">{{registro_hora.date}}</a></td>
+            <td>{{registro_hora.motivo}}</td>
+            <td>{{registro_hora.horas}}</td>
+            <td>{{registro_hora.date_update}}</td>
+        </tr>
+    </tbody>
+    
+    {% endfor %}
+</table>
+{% if object %}
+        <a href="{% url 'create_hora_extra' %}" class="btn btn-primary btn-lg ">Adicionar Hora Extra</a>
+{% endif %}
+
+<h3>Total horas extras: {{object.total_horas_extra}}</h3>
 {%endblock%}
